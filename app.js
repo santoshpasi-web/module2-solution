@@ -11,30 +11,27 @@
   function ShoppingListService() {
     var service = this ;
 
+
     var addItems = [
       {
-        name: "Noodles",
-        quantity: "20"
-      },
-      {
-        name: "Bounty",
+        name: "Milk",
         quantity: "10"
-      },
-      {
-        name: "Eggs",
-        quantity: "20"
       },
       {
         name: "Cookies",
         quantity: "10"
       },
       {
-        name: "Cheese",
-        quantity: "30"
+        name: "Chocolate",
+        quantity: "10"
       },
       {
-        name: "Onions",
-        quantity: "20"
+        name: "Bounty",
+        quantity: "10"
+      },
+      {
+        name: "Cheese",
+        quantity: "10"
       }
     ];
     var alreadyItems = [];
@@ -52,6 +49,8 @@
       alreadyItems.push(item);
       addItems.splice(itemIndex,1);
     }
+
+
   }
 
   AddtoList.$inject = ['ShoppingListService'];
@@ -88,5 +87,5 @@ function AlreadyBoughtController(ShoppingListService) {
     return true ;
   }
 }
-
+    
     })();

@@ -1,91 +1,99 @@
 
 (function () {
-    'use strict';
+  'use strict';
 
-  angular.module('ShoppingList', [])
-  .controller('ToBuyController',ToBuyController)
-  .controller('AlreadyBoughtController',AlreadyBoughtController)
-  .controller('AddtoList',AddtoList)
-  .service('ShoppingListService',ShoppingListService);
+angular.module('ShoppingList', [])
+.controller('ToBuyController',ToBuyController)
+.controller('AlreadyBoughtController',AlreadyBoughtController)
+.controller('AddtoList',AddtoList)
+.service('ShoppingListService',ShoppingListService);
 
-  function ShoppingListService() {
-    var service = this ;
+function ShoppingListService() {
+  var service = this ;
 
 
-    var addItems = [
-      {
-        name: "Milk",
-        quantity: "10"
-      },
-      {
-        name: "Cookies",
-        quantity: "10"
-      },
-      {
-        name: "Chocolate",
-        quantity: "10"
-      },
-      {
-        name: "Bounty",
-        quantity: "10"
-      },
-      {
-        name: "Cheese",
-        quantity: "10"
-      }
-    ];
-    var alreadyItems = [];
-    service.getaddItems = function functionName() {
-      return addItems ;
+  var addItems = [
+    {
+      name: "Milk",
+      quantity: "10"
+    },
+    {
+      name: "Cookies",
+      quantity: "10"
+    },
+    {
+      name: "Chocolate",
+      quantity: "10"
+    },
+    {
+      name: "Bounty",
+      quantity: "10"
+    },
+    {
+      name: "Cheese",
+      quantity: "10"
     }
-
-    service.getAlreadyItems = function functionName() {
-      return alreadyItems ;
-    }
-
-    service.buyItem = function (itemIndex) {
-      
-      var item = addItems[itemIndex];
-      alreadyItems.push(item);
-      addItems.splice(itemIndex,1);
-    }
-
-
+  ];
+  var alreadyItems = [];
+  service.getaddItems = function functionName() {
+    return addItems ;
   }
 
-  AddtoList.$inject = ['ShoppingListService'];
-  function AddtoList(ShoppingListService) {
-  var insert = this ;
+  service.getAlreadyItems = function functionName() {
+    return alreadyItems ;
+  }
+
+  service.buyItem = function (itemIndex) {
+    
+    var item = addItems[itemIndex];
+    alreadyItems.push(item);
+    addItems.splice(itemIndex,1);
+  }
+
+
 }
 
-  ToBuyController.$inject = ['ShoppingListService'];
-  function ToBuyController(ShoppingListService) {
-  var toBuy = this;
-  toBuy.items = ShoppingListService.getaddItems();
-  toBuy.buyItem = function(itemIndex) {
-  ShoppingListService.buyItem(itemIndex);
-  }
+AddtoList.$inject = ['ShoppingListService'];
+function AddtoList(ShoppingListService) {
+var insert = this ;
+}
 
-  toBuy.errorMessage = function () {
-    if(toBuy.items.length > 0)
-      return false ;
-    return true ;
-  }
+
+
+ToBuyController.$inject = ['ShoppingListService'];
+function ToBuyController(ShoppingListService) {
+  
+var toBuy = this;
+toBuy.items = ShoppingListService.getaddItems();
+
+toBuy.buyItem = function(itemIndex) {
+ShoppingListService.buyItem(itemIndex);
+}
+
+toBuy.errorMessage = function () {
+  if(toBuy.items.length > 0)
+    return false ;
+
+  return true ;
+}
 
 }
+
+
 
 AlreadyBoughtController.$inject = ['ShoppingListService'];
 function AlreadyBoughtController(ShoppingListService) {
-  var already = this ;
+var already = this ;
 
-  already.items=ShoppingListService.getAlreadyItems();
+already.items=ShoppingListService.getAlreadyItems();
 
-  already.errorMessage = function () {
-    if(already.items.length > 0)
-      return false ;
+already.errorMessage = function () {
+  if(already.items.length > 0)
+    return false ;
 
-    return true ;
-  }
+  return true ;
 }
-    
-    })();
+}
+  
+  })();
+  

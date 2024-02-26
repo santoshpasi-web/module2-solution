@@ -12,9 +12,6 @@
         color: red;
         font-size: 1.2em;
       }
-      ul{
-        list-style: none;
-      }
       li {
         margin-bottom: 7px;
         font-size: 1.2em;
@@ -25,15 +22,6 @@
       button > span {
         color: green;
       }
-      h1{
-        padding-top: 10px;
-        border-bottom: 1px solid #575757;
-        margin-bottom: 10px;
-      }
-      .sp_class{
-        padding: 10px;
-        border-radius: 1px solid #575757;
-      }
     </style>
   </head>
 <body>
@@ -43,7 +31,7 @@
   <div class="row">
   
     <!-- To Buy List -->
-    <div class="col-md-6 sp_class">
+    <div class="col-md-6">
       <h2>To Buy:</h2>
      <ul>
        <li ng-repeat="item in toBuy.items">{{$index + 1}}. Buy {{item.quantity}} of {{item.name}}(s)<button class="btn btn-default" ng-click = "toBuy.buyItem($index)"><span class="glyphicon glyphicon-ok"></span> Bought</button></li>
@@ -53,7 +41,7 @@
    
     <!-- Already Bought List -->
 
-    <div class="col-md-6 sp_class">
+    <div class="col-md-6">
      <h2>Already Bought:</h2>
     <div class="alreadyBought" ng-controller = 'AlreadyBoughtController as already'>
      <ul>
@@ -61,7 +49,8 @@
      </ul>
      <div ng-if="already.errorMessage()" class="emptyMessage">Nothing bought yet.</div>
     </div>
-    </div>
+  </div>
 </div>
+
 </body>
 </html>

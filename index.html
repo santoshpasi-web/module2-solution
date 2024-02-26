@@ -6,7 +6,22 @@
   <title>Shppping List 1</title>
   <link rel="stylesheet" href="styles/bootstrap.min.css">
   <style>
-    footer {
+    .emptyMessage {
+        font-weight: bold;
+        color: red;
+        font-size: 1.2em;
+      }
+      li {
+        margin-bottom: 7px;
+        font-size: 1.2em;
+      }
+      li > button {
+        margin-left: 6px;
+      }
+      button > span {
+        color: green;
+      }
+      footer {
       border-top: solid 1px gray;
       font-size: 0.8em;
       text-align: center;
@@ -31,7 +46,7 @@
             <div ng-show="listToBuy.items.length > 0">
               <li ng-repeat="item in listToBuy.items;">
                 {{ item.quantity }} of {{ item.name }}
-                <button class="btn btn-primary btn-xs" ng-click="listToBuy.checkOff($index);">Buy</button>
+                <button class="btn btn-default" ng-click="listToBuy.checkOff($index);">Bought</button>
               </li>
             </div>
             <div ng-show="listToBuy.items.length == 0">
@@ -50,7 +65,7 @@
             </ol>
           </div>
           <div ng-show="listBought.items.length == 0">
-            <p>Nothing bought yet!</p>
+            <p class="emptyMessage">Nothing bought yet!</p>
           </div>
         </div>
       </div>

@@ -31,16 +31,16 @@
     var service = this;
 
     var itemsToBuy = [
-      { name: "Noodles", quantity: 5 },
-      { name: "Milk", quantity: 2 },
-      { name: "Eggs", quantity: 12 },
-      { name: "Corn Flakes", quantity: 3 },
+      { name: "Milk", quantity: 5 },
+      { name: "Eggs", quantity: 2 },
+      { name: "Soap", quantity: 12 },
+      { name: "Paneer", quantity: 3 },
       { name: "Onions", quantity: 10 },
-      { name: "Chicken", quantity: 1 },
+      { name: "Chicken Masala", quantity: 1 },
       { name: "Shampoo", quantity: 1 },
-      { name: "Soap", quantity: 4 },
-      { name: "Bread", quantity: 1 },
-      { name: "Peanut Butter", quantity: 1 }
+      { name: "Rice", quantity: 4 },
+      { name: "Pasta", quantity: 1 },
+      { name: "Oil", quantity: 1 }
     ];
 
     var itemsBought = [];
